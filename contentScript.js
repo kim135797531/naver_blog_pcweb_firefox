@@ -1,20 +1,29 @@
-console.log("fuck");
+var shouldRedirect = true;
 
 var currentURL = window.location.href;
+var newURL = null;
+
 if (currentURL.includes("m.blog.naver")) {
-    var newURL = currentURL;
+    if (currentURL.includes("/clip") || currentURL.includes("/moment")) {
+        shouldRedirect = false; // Not redirect for clip
+    }
+
+    newURL = currentURL;
     if (newURL.includes("PostView.naver")) {
         newURL = newURL.replace("PostView.naver", "PostView.nhn");
     }
     newURL = newURL.replace("m.blog.naver", "blog.naver");
-    window.location.replace(newURL);
-}
-if (currentURL.includes("m.cafe.naver")) {
-    var newURL = currentURL.replace("m.cafe.naver", "cafe.naver");
-    window.location.replace(newURL);
-}
-if (currentURL.includes("m.map.naver")) {
-    var newURL = currentURL.replace("m.map.naver", "map.naver");
-    window.location.replace(newURL);
+
+} else if (currentURL.includes("m.cafe.naver")) {
+    newURL = currentURL.replace("m.cafe.naver", "cafe.naver");
+
+} else if (currentURL.includes("m.map.naver")) {
+    newURL = currentURL.replace("m.map.naver", "map.naver");
+
+} else {
+    shouldRedirect = false; // No redirection rule found
 }
 
+if (shouldRedirect && newURL != null) {
+    window.location.replace(newURL);
+}
