@@ -20,6 +20,9 @@ if (currentURL.includes("m.blog.naver")) {
 } else if (currentURL.includes("m.map.naver")) {
     newURL = currentURL.replace("m.map.naver", "map.naver");
 
+} else if (currentURL.endsWith("://m.naver.com/")) {
+    newURL = currentURL.replace("://m.naver", "://www.naver");
+
 } else {
     shouldRedirect = false; // No redirection rule found
 }

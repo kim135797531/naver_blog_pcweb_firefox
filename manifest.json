@@ -1,6 +1,6 @@
 {
     "name": "Naver Blog PC Web for Firefox",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "description": "데스크톱에서 네이버 블로그 들어갔을 때 모바일 페이지가 아닌 자동으로 PC버전으로 보여지게 하기.",
     "icons": {
         "128": "favicon_128.png"
@@ -21,10 +21,10 @@
     }],
     "manifest_version": 2,
     "browser_specific_settings": {
-      "gecko": {
-        "id": "kim135797531g@gmail.com",
-        "strict_min_version": "57.0"
-      }
-}
+        "gecko": {
+            "id": "kim135797531g@gmail.com",
+            "strict_min_version": "57.0"
+        }
+    }
 
 }
